@@ -2,9 +2,9 @@ from filecmp import DEFAULT_IGNORES
 
 
 def ordenamiento_insercion(arr):
-	#recorremos la lista desde el segundo elementos hasta el final 
+	
   for i in range (1, len(arr)):
-   #guardamos el valor actual para compararlo
+ 
    valor_actual =arr[i]
    j -=1 
    while  j >=0 and valor_actual< arr[j]:

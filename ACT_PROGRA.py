@@ -1,40 +1,33 @@
-def buscar_y_reemplazar(nombre_archivo, palabra_buscar, palabra_reemplazar, nuevo_archivo=None):
-    """
-    Busca una palabra en un archivo de texto y la reemplaza por otra.
-    
-    :param nombre_archivo: Nombre del archivo .txt a modificar.
-    :param palabra_buscar: Palabra o frase a buscar.
-    :param palabra_reemplazar: Palabra o frase de reemplazo.
-    :param nuevo_archivo: Si se especifica, guarda los cambios en un nuevo archivo.
-                          Si es None, modifica el archivo original.
-    """
+def buscar_y_reemplazar(cosa1_buscar, cosa2_buscar, cosa3_buscar, nuevo_plant=None):
+
+
     try:
-        with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
+        with open(cosa1_buscar, 'r', encoding='utf-8') as archivo:
             contenido = archivo.read()
         
-        contenido_modificado = contenido.replace(palabra_buscar, palabra_reemplazar)
+        contenido_modificado = contenido.replace(cosa2_buscar, cosa3_buscar)
         
-        archivo_salida = nuevo_archivo if nuevo_archivo else nombre_archivo
+        archivo_salida = nuevo_plant if nuevo_plant else cosa1_buscar
         
         with open(archivo_salida, 'w', encoding='utf-8') as archivo:
             archivo.write(contenido_modificado)
             
-        print(f" **Se reemplazó** '{palabra_buscar}' por '{palabra_reemplazar}' en '{archivo_salida}'.")
+        print(f" **Se reemplazó** '{cosa2_buscar}' por '{cosa3_buscar}' en '{archivo_salida}'.")
     except FileNotFoundError:
-        print(f" Error: El archivo '{nombre_archivo}' no existe.")
+        print(f" Error: El archivo '{cosa1_buscar}' no existe.")
     except Exception as e:
         print(f" Ocurrió un error: {e}")
 
 # Ejemplo de uso:
 if __name__ == "__main__":
-    print("////Buscar y Reemplazar en Archivo TXT////// ")
-    archivo = input("Ingresa la ruta donde tengas el archivo seguido por \su nombre.txt(ej: 'datos.txt'): ")
-    buscar = input("Palabra a buscar: ")
-    reemplazar = input("Palabra de reemplazo: ")
-    opcion = input("¿Guardar en nuevo archivo? (s/n): ").strip().lower()
+    print("////Buscar y Destruir en Archivo seleccionado////// ")
+    archivo = input("Donde esta el archivo seleccionado a buscar y destruir: ")
+    buscar = input("Palabra a DESTRUIR: ")
+    reemplazar = input("Palabra a PLANTAR: ")
+    opcion = input("¿Guardar en nuevo archivo? (s/n): ").strip().upper()
     
-    nuevo_archivo = None
+    nuevo_plant = None
     if opcion == 's':
-        nuevo_archivo = input("ingresa la ruta donde quieres que se guarde el archivo seguido por \su nuevo nombre.txt (ej: 'modificado.txt'): ")
+        nuevo_plant = input("Introduce donde ira el archivo anteriormente seleccionado, ya corregido txt. ")
     
-    buscar_y_reemplazar(archivo, buscar, reemplazar, nuevo_archivo)
+    buscar_y_reemplazar(archivo, buscar, reemplazar, nuevo_plant)
